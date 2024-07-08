@@ -14,7 +14,6 @@ db.init_app(app)
 @app.route("/customers", methods=['GET', 'POST'])
 def customers():
     if request.method == 'GET':
-        print(([customer.to_dict() for customer in Customer.query.all()]))
         return make_response(jsonify([customer.to_dict() for customer in Customer.query.all()]))
 
     if request.method == 'POST':
